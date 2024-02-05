@@ -41,13 +41,13 @@ int main(int argc, char* argv[]) {
 
         BasicStrategy basicStrategy;
 
-        std::cout << "Iniciando a Soma com a estratégia básica.\n" << std::endl;
+        std::cout << "Iniciando a Soma com a estratégia básica." << std::endl;
         Matrix resultSum = basicStrategy.sum(m1, m2);
         std::cout << "Soma concluída usando a estratégia básica.\n" << std::endl;
         std::string sumFileName = std::string(argv[3]) + "Soma.mtx";
         //writeMatrixToMTX(sumFileName.c_str(), resultSum);
 
-        std::cout << "Iniciando a multiplicacao com a estratégia básica.\n" << std::endl;
+        std::cout << "Iniciando a multiplicacao com a estratégia básica." << std::endl;
         Matrix resultMultiply = basicStrategy.multiply(m1, m2);
         std::cout << "Multiplicação concluída usando a estratégia básica.\n" << std::endl;
         std::string multFileName = std::string(argv[3]) + "Mult.mtx";
