@@ -1,17 +1,16 @@
-CC=g++
-CFLAGS=-fopenmp -I/home/fred/eigen-3.4.0/ -I/opt/intel/oneapi/mkl/latest/include/
-LDFLAGS=-L/opt/intel/oneapi/mkl/latest/lib/ -lmkl_rt
-TARGET=Blaol
-SRCS=main.cpp Matrix.cpp mtx_io.cpp BasicStrategy.cpp EigenSumStrategy.cpp MKLStrategy.cpp
-OBJS=$(SRCS:.cpp=.o)
-
-all: $(TARGET)
+SRCS = main.cpp Matrix.cpp mtx_io.cpp BasicStrategy.cpp EigenSumStrategy.cpp
+OBJS = $(SRCS:.cpp=.o)
+CXX = g++
+CXXFLAGS = -fopenmp -I/prj/prjad/fcabral/eigen-3.4.0/
+LDFLAGS =
+TARGET = Blaol
 
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS) $(LDFLAGS)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $<
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS) $(TARGET)
+
