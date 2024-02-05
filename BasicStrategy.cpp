@@ -9,14 +9,14 @@
 Matrix BasicStrategy::sum(const Matrix& m1, const Matrix& m2) const {
 
     int TILE_SIZE; 
-    int OMP_NUM_THREADS;
+//    int OMP_NUM_THREADS;
 
     const char* tileSizeStr = std::getenv("TILE_SIZE");
-    const char* nThreadsStr = std::getenv("OMP_NUM_THREADS");
+//    const char* nThreadsStr = std::getenv("OMP_NUM_THREADS");
 
-    OMP_NUM_THREADS = std::stoi(nThreadsStr); // Converte a string para int
-    std::cout << "OMP_NUM_THREADS: " << OMP_NUM_THREADS << std::endl;
-
+//    OMP_NUM_THREADS = std::stoi(nThreadsStr); // Converte a string para int
+//    std::cout << "OMP_NUM_THREADS: " << OMP_NUM_THREADS << std::endl;
+/*
     if (tileSizeStr != nullptr) { // Verifica se TILE_SIZE foi definida
         TILE_SIZE = std::stoi(tileSizeStr); // Converte a string para int
         std::cout << "TILE_SIZE: " << TILE_SIZE << "\n" << std::endl;
@@ -27,7 +27,7 @@ Matrix BasicStrategy::sum(const Matrix& m1, const Matrix& m2) const {
     if (m1.getRows() != m2.getRows() || m1.getCols() != m2.getCols()) {
         throw std::invalid_argument("As dimensões das matrizes devem ser iguais.");
     }
-
+*/
     Matrix result(m1.getRows(), m1.getCols());
     int n_threads, start, end;
 
