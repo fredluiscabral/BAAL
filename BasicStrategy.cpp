@@ -23,11 +23,12 @@ Matrix BasicStrategy::sum(const Matrix& m1, const Matrix& m2) const {
     } else {
         throw std::invalid_argument("Variável de ambiente TILE_SIZE não definida.");
     }
+*/
 
     if (m1.getRows() != m2.getRows() || m1.getCols() != m2.getCols()) {
         throw std::invalid_argument("As dimensões das matrizes devem ser iguais.");
     }
-*/
+
     Matrix result(m1.getRows(), m1.getCols());
     int n_threads, start, end;
 
