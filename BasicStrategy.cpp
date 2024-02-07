@@ -39,8 +39,18 @@ Matrix BasicStrategy::sum(const Matrix& m1, const Matrix& m2) const {
         int thread_id = omp_get_thread_num();
         int rows_per_thread = m1.getRows() / n_threads;
         int remainder = m1.getRows() % n_threads;
-        start = thread_id * rows_per_thread + std::min(thread_id, remainder);
-        end = start + rows_per_thread + (thread_id < remainder ? 1 : 0);
+
+        if(thread_id+1 <= remainder){
+            start = start+thread_id;
+            end = end+thread_id+1;
+        }
+        else{
+            start = start+remainder;
+            end = end+remainder;
+        }
+
+        //start = thread_id * rows_per_thread + std::min(thread_id, remainder);
+        //end = start + rows_per_thread + (thread_id < remainder ? 1 : 0);
         for (int i = start; i < end; i += TILE_SIZE) {
             for (int j = 0; j < m1.getCols(); j += TILE_SIZE) {
                 for (int ti = i; ti < std::min(i + TILE_SIZE, end); ++ti) {
