@@ -40,6 +40,9 @@ Matrix BasicStrategy::sum(const Matrix& m1, const Matrix& m2) const {
         int rows_per_thread = m1.getRows() / n_threads;
         int remainder = m1.getRows() % n_threads;
 
+        start = rows_per_thread*thread_id;
+        end = start + rows_per_thread -1;
+
         if(thread_id+1 <= remainder){
             start = start+thread_id;
             end = end+thread_id+1;
