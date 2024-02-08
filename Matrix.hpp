@@ -19,8 +19,18 @@ public:
     // Adicionar um construtor que aceite Eigen::MatrixXd
     Matrix(const Eigen::MatrixXd& mat);
 
-    double getValue(int row, int col) const;
-    void setValue(int row, int col, double value);
+    //double getValue(int row, int col) const;
+    //void setValue(int row, int col, double value);
+
+    inline double getValue(int row, int col) const {
+        return data[row * cols + col];
+    }
+
+    inline void setValue(int row, int col, double value) {
+        data[row * cols + col] = value;
+    }
+
+
     int getRows() const;
     int getCols() const;
 };

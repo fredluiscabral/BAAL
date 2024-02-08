@@ -48,7 +48,7 @@ void Matrix::setValue(int row, int col, double value) {
     data[row][col] = value;
 }
 */
-
+/*
 double Matrix::getValue(int row, int col) const {
     return data[row * cols + col];
 }
@@ -56,7 +56,7 @@ double Matrix::getValue(int row, int col) const {
 void Matrix::setValue(int row, int col, double value) {
     data[row * cols + col] = value;
 }
-
+*/
 
 
 int Matrix::getRows() const { return rows; }
