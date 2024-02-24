@@ -39,20 +39,26 @@ int main(int argc, char* argv[]) {
         Matrix m1 = readMatrixFromMTX(argv[1]);
         Matrix m2 = readMatrixFromMTX(argv[2]);
 
+        std::cout << m1.rows << " linhas em M1" << std::endl;
+        std::cout << m1.cols << " colunas em M1" << std::endl;
+
+        std::cout << m2.rows << " linhas em M2" << std::endl;
+        std::cout << m2.cols << " colunas em M2" << std::endl;
+
         BasicStrategy basicStrategy;
 
         std::cout << "Iniciando a Soma com a estratégia básica." << std::endl;
         Matrix resultSum = basicStrategy.sum(m1, m2);
         std::cout << "Soma concluída usando a estratégia básica.\n" << std::endl;
         std::string sumFileName = std::string(argv[3]) + "Soma.mtx";
-        writeMatrixToMTX(sumFileName.c_str(), resultSum);
-
+        //writeMatrixToMTX(sumFileName.c_str(), resultSum);
+        /*
         std::cout << "Iniciando a multiplicacao com a estratégia básica." << std::endl;
         Matrix resultMultiply = basicStrategy.multiply(m1, m2);
         std::cout << "Multiplicação concluída usando a estratégia básica.\n" << std::endl;
         std::string multFileName = std::string(argv[3]) + "Mult.mtx";
         writeMatrixToMTX(multFileName.c_str(), resultMultiply);
-
+	*/
         // Soma usando a estratégia Eigen
         /*
         EigenSumStrategy eigenStrategy;
